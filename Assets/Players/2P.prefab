@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9031328615144563923}
   - component: {fileID: 95552848165214342}
   m_Layer: 0
-  m_Name: 2Pmodel
+  m_Name: 2P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 9031328615144563937}
   - component: {fileID: 9031328615147988161}
   - component: {fileID: 9031328615146857985}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder027
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,7 +870,7 @@ GameObject:
   - component: {fileID: 9031328615144563955}
   - component: {fileID: 9031328615147988179}
   - component: {fileID: 9031328615146858003}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Box075
   m_TagString: Untagged
   m_Icon: {fileID: 0}

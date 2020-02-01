@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    [SerializeField] ChangeColorForTower changeTower;
+
     public int player1PartsNum;//このタワーがもっているPlayer1のパーツ数
     public int player2PartsNum;//このタワーがもっているPlayer2のパーツ数
 
@@ -32,6 +34,8 @@ public class Tower : MonoBehaviour
     void Start()
     {
         testMaterial = this.GetComponentInChildren<Renderer>();
+        changeTower.SetNormalColor();
+        BuildTowor(false);
     }
     private void FixedUpdate()
     {
@@ -54,10 +58,12 @@ public class Tower : MonoBehaviour
                 if (player1PartsNum > 10)
                 {
                     ChangePlayer1Tower();
+                    BuildTowor(true);
                 }//10個以上パーツを入れたプレイヤーのタワーになる
                 if (player2PartsNum > 10)
                 {
                     ChangePlayer2Tower();
+                    BuildTowor(true);
                 }
                 break;
 
@@ -67,6 +73,8 @@ public class Tower : MonoBehaviour
                 if(player1PartsNum <= 0)
                 {
                     ChangeTowerNoPlayer();
+                    changeTower.SetNormalColor();
+                    BuildTowor(false);
                 }
 
                 break;
@@ -77,6 +85,8 @@ public class Tower : MonoBehaviour
                 if(player2PartsNum <= 0)
                 {
                     ChangeTowerNoPlayer();
+                    changeTower.SetNormalColor();
+                    BuildTowor(false);
                 }
 
                 break;
@@ -96,6 +106,7 @@ public class Tower : MonoBehaviour
                 player1PartsNum++;
                 player1RepairCT = 0;
 
+                player1Date.RepairAnim();
                 Player1PartsOut();
             }
             else if(player1RepairCT >= player1Date.destroyTime)
@@ -103,6 +114,7 @@ public class Tower : MonoBehaviour
                 player2PartsNum--;
                 player1RepairCT = 0;
 
+                player1Date.RepairAnim();
                 Player1PartsOut();
             }
         }
@@ -114,6 +126,7 @@ public class Tower : MonoBehaviour
                 player2PartsNum++;
                 player2RepairCT = 0;
 
+                player2Date.RepairAnim();
                 Player2PartsOut();
             }
             else if(player2RepairCT >= player2Date.destroyTime)
@@ -121,11 +134,23 @@ public class Tower : MonoBehaviour
                 player1PartsNum--;
                 player2RepairCT = 0;
 
+                player2Date.RepairAnim();
                 Player2PartsOut();
             }
         }
     }
 
+    void BuildTowor(bool build)
+    {
+        if(build)
+        {
+            changeTower.BuildTower();
+        }
+        else
+        {
+            changeTower.BreakTower();
+        }
+    }
     void ChangeTowerNoPlayer()
     {
         towerType = TowerType.NoPlayer;
@@ -141,8 +166,7 @@ public class Tower : MonoBehaviour
         areaOb.transform.position = this.transform.position;
         Debug.Log(this.name);
 
-        ChangeColorForTower changeColor = this.GetComponentInChildren<ChangeColorForTower>();
-        changeColor.SetColor(true);
+        changeTower.SetColor(true);
 
     }//Player1のタワーに変更
     void ChangePlayer2Tower()
@@ -154,8 +178,7 @@ public class Tower : MonoBehaviour
         areaOb.transform.position = this.transform.position;
         Debug.Log(player2Area.transform.position);
 
-        ChangeColorForTower changeColor = this.GetComponentInChildren<ChangeColorForTower>();
-        changeColor.SetColor(true);
+        changeTower.SetColor(false);
     }//Player2のタワーに変更
     void AreaDeleet()
     {

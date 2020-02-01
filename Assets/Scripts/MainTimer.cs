@@ -8,7 +8,7 @@ public class MainTimer : MonoBehaviour
     public float timeLimit = 100;
     private float startTime;
     public int remainingTime;
-    public GameObject[] Towers;
+    public Tower[] Towers;
     public string WinScene1P;
     public string WinScene2P;
     // Start is called before the first frame update
@@ -26,9 +26,13 @@ public class MainTimer : MonoBehaviour
         if (remainingTime <= 0) {
             Time.timeScale = 0;
 
-            int point1P = 1;
-            int point2P = 2;
-            // TODO: 計算処理
+            int point1P = 0;
+            int point2P = 0;
+            foreach (Tower tower in Towers)
+            {
+                point1P += tower.player1PartsNum;
+                point2P += tower.player2PartsNum;
+            }
             if (point1P > point2P)
             {
                 SceneManager.LoadScene(WinScene1P);

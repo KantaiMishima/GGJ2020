@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class PlayerDates : MonoBehaviour
 {
@@ -20,8 +21,15 @@ public class PlayerDates : MonoBehaviour
     [SerializeField] Slider partsGage;
     [SerializeField] Image gageColor;
 
+    [SerializeField] Animator anim;
+    float moveAmount = 0;
+    Vector3 beforePos = Vector3.zero;
+
+    private AudioSource audioSource;
+
     void Start()
     {
+        audioSource = this.gameObject.GetComponent<AudioSource>();
         GageColorSet();
     }
 
@@ -32,27 +40,33 @@ public class PlayerDates : MonoBehaviour
         switch (player)
         {
             case Player.player1:
-                if (Input.GetKey(KeyCode.A) && partsGage.value > 0)
+                if (Input.GetButton("Fire1") && partsGage.value > 0)
                 {
                     repairButton = true;
-                }
-                if(Input.GetKeyDown(KeyCode.Alpha1))
-                {
-                    PartsGet();
                 }
                 break;
 
             case Player.player2:
-                if (Input.GetKey(KeyCode.B) && partsGage.value > 0)
+                if (Input.GetButton("Fire12") && partsGage.value > 0)
                 {
                     repairButton = true;
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha2))
-                {
-                    PartsGet();
-                }
                 break;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (Vector3.Distance(this.transform.position, beforePos) > 0.1)
+        {
+            anim.SetBool("Walk", true);
+        }
+        else
+        {
+            anim.SetBool("Walk", false);
+        }
+
+        beforePos = this.transform.position;
     }
 
     public void PartsGet()
@@ -85,5 +99,31 @@ public class PlayerDates : MonoBehaviour
         {
             return partsGage.value / partsGage.maxValue;
         }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.tag == "Items" && partsGage.maxValue > partsGage.value)
+        {
+            PartsGet();
+            Destroy(collider.gameObject);
+        }
+    }
+
+    public void RepairAnim()
+    {
+        anim.SetTrigger("Repair");
+    }
+
+    public void PlaySE()
+    {
+        audioSource.Stop();
+        audioSource.time = 1.5f;
+        audioSource.Play();
+    }
+
+    public void StopSE()
+    {
+        audioSource.Stop();
     }
 }

@@ -47,7 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeLimit: 100
   remainingTime: 0
-  Towers: []
+  Towers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   WinScene1P: Win1P
   WinScene2P: Win2P
 --- !u!1 &2721193420544732391
@@ -109,11 +118,11 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 823
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: c79207a473b4f844aad024fe7a3a52c0, type: 2}
   m_TargetDisplay: 0
@@ -156,8 +165,7 @@ GameObject:
   - component: {fileID: 2721193421369101918}
   - component: {fileID: 2721193421369101919}
   - component: {fileID: 2721193421369101916}
-  - component: {fileID: 2721193421369101917}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mapDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,17 +231,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2721193421369101917
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2721193421369101890}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
