@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class hover : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
     private void FixedUpdate()
     {
         Rigidbody rb = this.GetComponent<Rigidbody>();

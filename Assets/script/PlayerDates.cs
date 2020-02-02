@@ -21,6 +21,8 @@ public class PlayerDates : MonoBehaviour
     [SerializeField] Slider partsGage;
     [SerializeField] Image gageColor;
 
+    [SerializeField] GameObject Beam;
+
     [SerializeField] Animator anim;
     float moveAmount = 0;
     Vector3 beforePos = Vector3.zero;
@@ -44,12 +46,28 @@ public class PlayerDates : MonoBehaviour
                 {
                     repairButton = true;
                 }
+                if (Input.GetButton("Fire2") && partsGage.value == partsGage.maxValue)
+                {
+                    var beam = Instantiate(Beam);
+                    beam.transform.position = this.transform.position;
+                    beam.transform.rotation = this.transform.rotation;
+                    partsGage.value = 0;
+                    GageColorSet();
+                }
                 break;
 
             case Player.player2:
                 if (Input.GetButton("Fire12") && partsGage.value > 0)
                 {
                     repairButton = true;
+                }
+                if (Input.GetButton("Fire22") && partsGage.value == partsGage.maxValue)
+                {
+                    var beam = Instantiate(Beam);
+                    beam.transform.position = this.transform.position;
+                    beam.transform.rotation = this.transform.rotation;
+                    partsGage.value = 0;
+                    GageColorSet();
                 }
                 break;
         }

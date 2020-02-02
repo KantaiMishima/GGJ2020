@@ -66,6 +66,7 @@ MonoBehaviour:
   player: 1
   partsGage: {fileID: 0}
   gageColor: {fileID: 0}
+  Beam: {fileID: 0}
   anim: {fileID: 95654457151744244}
 --- !u!95 &95654457151744244
 Animator:
@@ -98,7 +99,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f6c9682d381e3324bb4dc62a262cd4c6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.459
   m_Pitch: 1
   Loop: 0
   Mute: 0

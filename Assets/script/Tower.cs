@@ -20,6 +20,11 @@ public class Tower : MonoBehaviour
     [SerializeField] GameObject player2Area;
     GameObject areaOb = null;
 
+    [SerializeField] GameObject player1HealParticle;
+    [SerializeField] GameObject player2HealParticle;
+
+    private AudioSource audioSource;
+
     public enum TowerType
     {
         NoPlayer,
@@ -33,6 +38,7 @@ public class Tower : MonoBehaviour
 
     void Start()
     {
+        audioSource = this.gameObject.GetComponent<AudioSource>();
         testMaterial = this.GetComponentInChildren<Renderer>();
         changeTower.SetNormalColor();
         BuildTowor(false);
@@ -69,7 +75,7 @@ public class Tower : MonoBehaviour
 
             case TowerType.Player1:
 
-                areaOb.transform.localScale = new Vector3(player1PartsNum, 0.75f, player1PartsNum);
+                areaOb.transform.localScale = new Vector3(player1PartsNum, player1PartsNum, player1PartsNum + 1.5f)/3;
                 if(player1PartsNum <= 0)
                 {
                     ChangeTowerNoPlayer();
@@ -81,8 +87,8 @@ public class Tower : MonoBehaviour
 
             case TowerType.Player2:
 
-                areaOb.transform.localScale = new Vector3(player2PartsNum,0.75f, player2PartsNum);
-                if(player2PartsNum <= 0)
+                areaOb.transform.localScale = new Vector3(player2PartsNum, player2PartsNum, player2PartsNum + 1.5f) / 3;
+                if (player2PartsNum <= 0)
                 {
                     ChangeTowerNoPlayer();
                     changeTower.SetNormalColor();
@@ -103,14 +109,19 @@ public class Tower : MonoBehaviour
         {
             if(player2PartsNum == 0 && player1RepairCT >= player1Date.repairTime && maxPartsNum > player1PartsNum)
             {
+                print("ripair");
+                audioSource.Play();
                 player1PartsNum++;
                 player1RepairCT = 0;
 
                 player1Date.RepairAnim();
                 Player1PartsOut();
+                HealParticle(1.5f,true);
             }
             else if(player1RepairCT >= player1Date.destroyTime)
             {
+                Debug.Log("Destroy");
+                audioSource.Play();
                 player2PartsNum--;
                 player1RepairCT = 0;
 
@@ -123,20 +134,31 @@ public class Tower : MonoBehaviour
         {
             if(player1PartsNum == 0 && player2RepairCT >= player2Date.repairTime && maxPartsNum > player2PartsNum)
             {
+                Debug.Log("Repair");
+                audioSource.Play();
                 player2PartsNum++;
                 player2RepairCT = 0;
 
                 player2Date.RepairAnim();
                 Player2PartsOut();
+                HealParticle(1.5f,false);
             }
             else if(player2RepairCT >= player2Date.destroyTime)
             {
+                Debug.Log("Destroy");
+                audioSource.Play();
                 player1PartsNum--;
                 player2RepairCT = 0;
 
                 player2Date.RepairAnim();
                 Player2PartsOut();
             }
+        }
+
+        if (collider.tag == "beam")
+        {
+            player1PartsNum = 0;
+            player2PartsNum = 0;
         }
     }
 
@@ -196,5 +218,22 @@ public class Tower : MonoBehaviour
     void Player2PartsOut()
     {
         player2Date.PartsOut();
+    }
+
+    void HealParticle(float time,bool change)
+    {
+        GameObject particle;
+        if (change)
+        {
+            particle = Instantiate(player1HealParticle);
+        }
+        else
+        {
+            particle = Instantiate(player2HealParticle);
+        }
+        
+        particle.transform.position = this.transform.position;
+
+        Destroy(particle, time);
     }
 }
