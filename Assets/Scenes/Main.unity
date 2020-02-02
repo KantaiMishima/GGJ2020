@@ -5036,22 +5036,22 @@ PrefabInstance:
     - target: {fileID: 2875010548517512540, guid: 4df07c5186131a74ba4ab51e7a937a34,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2875010548517512540, guid: 4df07c5186131a74ba4ab51e7a937a34,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2875010548517512540, guid: 4df07c5186131a74ba4ab51e7a937a34,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2875010548517512540, guid: 4df07c5186131a74ba4ab51e7a937a34,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2875010548517512540, guid: 4df07c5186131a74ba4ab51e7a937a34,
         type: 3}
@@ -5627,6 +5627,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5228148351270237889, guid: 759f187b01244f744be48e37bf2ffe03,
         type: 3}
+    - target: {fileID: 2133893757305963986, guid: 15dee7883f813eb4a9fa8778ac650b7a,
+        type: 3}
+      propertyPath: repairTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133893757305963986, guid: 15dee7883f813eb4a9fa8778ac650b7a,
+        type: 3}
+      propertyPath: destroyTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2133893757305963987, guid: 15dee7883f813eb4a9fa8778ac650b7a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5822,6 +5832,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3640163800640772170, guid: b49587bcfeefe28499b121619c245328,
+        type: 3}
+      propertyPath: repairTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3640163800640772170, guid: b49587bcfeefe28499b121619c245328,
+        type: 3}
+      propertyPath: destroyTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3640163800640772171, guid: b49587bcfeefe28499b121619c245328,
         type: 3}

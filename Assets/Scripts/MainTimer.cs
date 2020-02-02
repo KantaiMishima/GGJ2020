@@ -30,8 +30,12 @@ public class MainTimer : MonoBehaviour
             int point2P = 0;
             foreach (Tower tower in Towers)
             {
-                point1P += tower.player1PartsNum;
-                point2P += tower.player2PartsNum;
+                int point = tower.player1PartsNum - 5;
+                if (point < 0) point = 0;
+                point1P += point;
+                point = tower.player2PartsNum - 5;
+                if (point < 0) point = 0;
+                point2P += point;
             }
             if (point1P >= point2P)
             {

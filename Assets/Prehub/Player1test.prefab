@@ -402,10 +402,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5072692711802598372}
     m_Modifications:
+    - target: {fileID: 6141391874063312003, guid: bb0274b1220250445be2822e29913893,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6141391874063312007, guid: bb0274b1220250445be2822e29913893,
         type: 3}
       propertyPath: m_Name
       value: 1P
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141391874063312097, guid: bb0274b1220250445be2822e29913893,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141391874063312107, guid: bb0274b1220250445be2822e29913893,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141391874063312119, guid: bb0274b1220250445be2822e29913893,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6141391874063349991, guid: bb0274b1220250445be2822e29913893,
         type: 3}

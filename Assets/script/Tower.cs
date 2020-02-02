@@ -61,12 +61,12 @@ public class Tower : MonoBehaviour
                     testMaterial.material.color = new Color(0f, 0f, 0.5f, 1f);
                 }
 
-                if (player1PartsNum > 10)
+                if (player1PartsNum > 5)
                 {
                     ChangePlayer1Tower();
                     BuildTowor(true);
                 }//10個以上パーツを入れたプレイヤーのタワーになる
-                if (player2PartsNum > 10)
+                if (player2PartsNum > 5)
                 {
                     ChangePlayer2Tower();
                     BuildTowor(true);

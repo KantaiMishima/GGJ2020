@@ -250,6 +250,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2P
       objectReference: {fileID: 0}
+    - target: {fileID: 9031328615144667319, guid: ffcc21213cbfb544a94661788831dba6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031328615144667331, guid: ffcc21213cbfb544a94661788831dba6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031328615144667349, guid: ffcc21213cbfb544a94661788831dba6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031328615144667359, guid: ffcc21213cbfb544a94661788831dba6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffcc21213cbfb544a94661788831dba6, type: 3}
 --- !u!4 &8286439854197902932 stripped

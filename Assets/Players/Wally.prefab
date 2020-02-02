@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefix: 
-  angularVelocity: 50
+  angularVelocity: 100
 --- !u!114 &8677321540619734165
 MonoBehaviour:
   m_ObjectHideFlags: 0

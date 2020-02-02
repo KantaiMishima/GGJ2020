@@ -100,6 +100,10 @@ public class PlayerDates : MonoBehaviour
     public void GageColorSet()
     {
         gageColor.color = Color.green;
+        if (GageParcent() == 1)
+        {
+            gageColor.color = Color.magenta;
+        }
         if (GageParcent() <= 0.5f)
         {
             gageColor.color = Color.yellow;
