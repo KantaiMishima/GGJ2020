@@ -38,4 +38,12 @@ public class ItemPoint : MonoBehaviour
             dropItem.transform.position = pos + random;
         }
     }
+    private void OnTriggerStay(Collider collider)
+    {
+
+        if (collider.tag == "Player1" || collider.tag == "Player2")
+        {
+            startTime = Time.time;
+        }
+    }
 }

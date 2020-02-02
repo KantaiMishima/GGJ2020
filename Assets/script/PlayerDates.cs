@@ -92,9 +92,9 @@ public class PlayerDates : MonoBehaviour
         partsGage.value++;
         GageColorSet();
     }
-    public void PartsOut()
+    public void PartsOut(int i = 1)
     {
-        partsGage.value--;
+        partsGage.value = Mathf.Clamp(partsGage.value - i,0,partsGage.maxValue);
         GageColorSet();
     }
     public void GageColorSet()

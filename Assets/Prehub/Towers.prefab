@@ -96,9 +96,9 @@ MonoBehaviour:
   maxPartsNum: 30
   player1Date: {fileID: 0}
   player2Date: {fileID: 0}
-  player1Area: {fileID: 6474655629522984327, guid: 2036c42e4b0c71d4f84ce84b6305f5ba,
+  player1Area: {fileID: 3544095501907575236, guid: c7d504a8199fd7b449a97b221ebe2aa9,
     type: 3}
-  player2Area: {fileID: 8266866523052785224, guid: 81124bcd4ed31ad468e58aca61d5d021,
+  player2Area: {fileID: 3544095501907575236, guid: fb2de9d74e89e1648bb5c90628be2a89,
     type: 3}
   player1HealParticle: {fileID: 8937472962002362744, guid: a018f4ed592b37e4a9344fdb50790e20,
     type: 3}

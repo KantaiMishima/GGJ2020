@@ -33,7 +33,7 @@ public class MainTimer : MonoBehaviour
                 point1P += tower.player1PartsNum;
                 point2P += tower.player2PartsNum;
             }
-            if (point1P > point2P)
+            if (point1P >= point2P)
             {
                 SceneManager.LoadScene(WinScene1P);
             }
